@@ -1,0 +1,83 @@
+body {
+  position: fixed;
+  background-color: black;
+  cursor: url("../images/c1.png"), auto;
+  align-content: center;
+}
+/* Moles */
+
+#mole1 {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  z-index: 20;
+  margin: 413px 0 0 536px;
+}
+
+#mole2 {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  z-index: 20;
+  margin: 441px 1px 3px 622px;
+}
+#mole3 {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  z-index: 20;
+  margin: 412px 0px 0 718px;
+}
+
+#mole4 {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  z-index: 20;
+  margin: 440px 0 0 823px;
+}
+
+.active {
+  visibility: visible !important;
+  transform: translateY(0) !important;
+}
+
+#mole {
+  background: url("../images/mole.png") center bottom no-repeat;
+  background-size: 82px;
+  transform: translateY(60%);
+  transition: transform 0.4s;
+  visibility: hidden;
+  width: 66px;
+    height: 66px;
+}
+
+/* Background Image */
+
+#bimg {
+  position: absolute;
+  z-index: 2;
+  margin: -42px 0 0 201px;
+}
+
+/* Scrolling Text  */
+
+#logo {
+  position: absolute;
+  font-size: 51px;
+  z-index: 3;
+  margin: 33px 0 0 523px;
+  width: 389px;
+  background: black;
+  color: yellow;
+  height: 84px;
+}
+
+/* Start Button */
+
+#btn{
+  position: absolute;
+  z-index: 30;
+  margin: 546px 0 0 522px;
+  background-color: gold;
+}
