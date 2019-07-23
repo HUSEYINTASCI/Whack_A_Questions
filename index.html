@@ -19,54 +19,49 @@
       <div id="info"></div>
       <div>
         <div id="mole1">
-         <div id="mole" class="mol" ></div>
+          <div id="mole" class="mol"></div>
         </div>
         <div id="mole2">
-            <div id="mole" class="mol" ></div>
+          <div id="mole" class="mol"></div>
         </div>
         <div id="mole3">
-            <div id="mole" class="mol" ></div>
+          <div id="mole" class="mol"></div>
         </div>
         <div id="mole4">
-            <div id="mole" class="mol" ></div>
+          <div id="mole" class="mol"></div>
         </div>
       </div>
     </div>
-    
-    <!-- Scrolling Text  -->
 
+    <!-- Scrolling Text  -->
     <marquee id="logo" width="40%" direction="left" height="30%">
       Whack A Questions
     </marquee>
 
     <!-- Backgraudn Image -->
-
     <img id="bimg" src="assets/images/saloon.jpg" alt="machine" />
 
     <!-- Start Button -->
-<button id="btn">START</button>
+    <button id="btn">START</button>
 
-<!-- Time -->
-<p id="time"></p>
+    <!-- Time -->
+    <p id="time"></p>
 
-<!-- Score -->
-<p id="score"></p>
+    <!-- Score -->
+    <p id="score"></p>
 
-<p id="questions"> 
-  <iframe src="assets/questions/q1.txt" name="I1" width="267" height="118" frameborder="0"></iframe> 
-  </p>
+    <!-- Questions -->
+    <p id="questions"></p>
 
-  <!-- Whack Sound -->
+    <!-- Whack Sound -->
+    <audio id="whack" class="bsounds">
+      <source src="assets/sounds/whack.mp3" type="audio/mpeg" />
+    </audio>
 
-  <audio id="whack" class="bsounds">
-    <source src="assets/sounds/whack.mp3"  type="audio/mpeg">
-  </audio>
-
-  <!-- Backgroud Sound -->
-  
-  <audio id="game" class="bsounds" loop >
-    <source src="assets/sounds/game.mp3"  type="audio/mpeg">
-  </audio>
+    <!-- Backgroud Sound -->
+    <audio id="game" class="bsounds" loop>
+      <source src="assets/sounds/game.mp3" type="audio/mpeg" />
+    </audio>
 
     <script
       src="https://code.jquery.com/jquery-3.4.1.min.js"
