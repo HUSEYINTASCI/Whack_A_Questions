@@ -135,3 +135,37 @@ body {
   color: gold;
   cursor: pointer;
 }
+/* @Media */
+
+@media (min-width: 100px) { 
+
+  #gam {
+    margin: 60px 0 0 -512px;
+  }
+
+ }
+ @media (min-width: 768px) { 
+
+  #gam {
+    margin: 60px 0 0 -346px;
+  }
+
+ }
+
+ @media (min-width: 1024px) { 
+
+  #gam {
+    margin: 109px 0 0 -198px;
+  }
+
+ }
+
+ @media (min-width: 1440px) { 
+
+  #gam {
+    margin: 82px 0 0 0;
+  }
+
+ }
+
+
