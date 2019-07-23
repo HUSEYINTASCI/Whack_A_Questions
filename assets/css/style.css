@@ -8,13 +8,14 @@ body {
 /* Scrolling Text  */
 #logo {
   position: absolute;
-  font-size: 51px;
-  z-index: 3;
-  margin: 33px 0 0 523px;
-  width: 389px;
-  background: black;
-  color: yellow;
-  height: 84px;
+    font-size: 51px;
+    z-index: 3;
+    margin: 24px 0 0 519px;
+    width: 395px;
+    border-radius: 11px;
+    background: black;
+    color: yellow;
+    height: 95px;
 }
 
 /* Background Image */
@@ -79,8 +80,12 @@ body {
 #btn {
   position: absolute;
   z-index: 30;
-  margin: 546px 0 0 522px;
+  margin: 535px 0 0 522px;
   background-color: gold;
+  border-radius: 149px;
+  width: 61px;
+  height: 57px;
+  font-weight: bold;
 }
 
 /* ------------------------------------------------------------------------------------------------------------------- */
@@ -118,4 +123,15 @@ body {
 /* Whack Sound */
 .bsounds {
   display: none;
+}
+
+/* Sound On/off */
+#bsoundoff{
+  margin: 547px 0 0 807px;
+  float: right;
+  position: absolute;
+  z-index: 70;
+  width: 92px;
+  color: gold;
+  cursor: pointer;
 }

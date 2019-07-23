@@ -89,22 +89,27 @@ $("#btn").on("click", function() {
   $("#btn").attr("disabled", true);
 });
 
-
-
-
 //   Sounds
 // ------------------------------------------
 
 // Whack Sound
+var player = document.querySelector("#whack");
 function whack() {
-  var player = document.querySelector("#whack");
   player.play();
 }
 
 // Background Sound
+var player2 = document.querySelector("#game");
 function game() {
-  var player = document.querySelector("#game");
-  player.play();
+  player2.play();
 }
+
+// Sound Mute
+document.querySelector("#check").onclick = function() {
+  var x = document.querySelector("#check").value;
+  if (x == 1) {
+    player2.muted = true;
+  }
+};
 
 // ------------------------------------------
