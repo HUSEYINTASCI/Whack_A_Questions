@@ -123,3 +123,10 @@ body {
     text-align: right;
 
 }
+
+
+/* Whack Sound */
+.bsounds{
+
+  display: none;
+}

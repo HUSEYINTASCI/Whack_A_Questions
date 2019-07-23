@@ -13,7 +13,7 @@ var info = {
   };
 
 $(".mol").on("click",function(){
-
+whack();
 score++;
 $("#score").text("Score = "+score);
 
@@ -45,6 +45,10 @@ function randomize() {
 
 // Start Button
 $("#btn").on("click", function() {
+
+
+// Backgroud Sound
+game();
 
 // ------------------------------------------ 
 //   Timer
@@ -78,4 +82,19 @@ $("#score").text("Score = "+score);
 });
 
 
- 
+// ------------------------------------------ 
+//   Sounds
+
+
+// Whack Sound
+function whack(){
+  var player= document.querySelector("#whack");
+  player.play();}
+
+  // Background Sound
+ function game(){
+  var player= document.querySelector("#game");
+  player.play();}
+
+
+   // ------------------------------------------
