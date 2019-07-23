@@ -1,29 +1,32 @@
 // ----------------------------------------------------------------------------------------------------
 //                               Moles
 // ----------------------------------------------------------------------------------------------------
-var score=0;
 
 var info = {
-    moles: ""
-    
+    moles: "",
+    score:0,
+    counter:20,
   },
   lastIndex = -1,
   onload = function() {
     info.moles = this.document.querySelectorAll("#mole");
   };
 
+  // Mole Catch
+
 $(".mol").on("click",function(){
 whack();
-score++;
-$("#score").text("Score = "+score);
+info.score++;
+$("#score").text("Score = "+info.score);
 
 
 });
 
 //Play
+var pl;
 function play() {
   randomize();
-  setTimeout(play, Math.random() * 700 + 1200);
+  pl= setTimeout(play, Math.random() * 700 + 1200);
 }
 
 //Random Moles
@@ -37,6 +40,7 @@ function randomize() {
   }
   lastIndex = index;
   info.moles[index].classList.add("active");
+   
 }
 
 // ----------------------------------------------------------------------------------------------------
@@ -54,17 +58,20 @@ game();
 //   Timer
 
 
-  var counter = 20;
-  $("#time").text(counter);
+   
+  $("#time").text(info.counter);
   var timer = setInterval(goDown, 1 * 1000);
 
   function goDown() {
-    counter--;
-    $("#time").text("Time = " + counter);
+    info.counter--;
+    $("#time").text("Time = " + info.counter);
 
-    if (counter == 0) {
+    if (info.counter == 0) {
       clearInterval(timer);
+      clearTimeout(pl);
       $("#time").text("Time = 0");
+
+      
     }
   }
 
@@ -75,7 +82,7 @@ game();
   play();
 
   // Score
-$("#score").text("Score = "+score);
+$("#score").text("Score = "+info.score);
 
   // After click button disable
   $("#btn").attr("disabled", true);
