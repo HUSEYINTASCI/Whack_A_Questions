@@ -1,10 +1,43 @@
 body {
   position: fixed;
   background-color: black;
-  cursor: url("../images/c1.png"), auto;
   align-content: center;
+  cursor: url("../images/c1.png"), auto;
 }
+ 
+/* Scrolling Text  */
+
+#logo {
+  position: absolute;
+  font-size: 51px;
+  z-index: 3;
+  margin: 33px 0 0 523px;
+  width: 389px;
+  background: black;
+  color: yellow;
+  height: 84px;
+}
+
+/* Background Image */
+
+#bimg {
+  position: absolute;
+  z-index: 2;
+  margin: -42px 0 0 201px;
+}
+
 /* Moles */
+/* ------------------------------------------------------------------------------------------------------------------- */
+#mole {
+  background: url("../images/mole.png") center bottom no-repeat;
+  background-size: 82px;
+  transform: translateY(60%);
+  transition: transform 0.4s;
+  visibility: hidden;
+  width: 66px;
+    height: 66px;
+}
+
 
 #mole1 {
   width: 100px;
@@ -37,40 +70,12 @@ body {
   margin: 440px 0 0 823px;
 }
 
+.mol{
+  cursor: url("../images/c2.png"), auto;
+}
 .active {
   visibility: visible !important;
   transform: translateY(0) !important;
-}
-
-#mole {
-  background: url("../images/mole.png") center bottom no-repeat;
-  background-size: 82px;
-  transform: translateY(60%);
-  transition: transform 0.4s;
-  visibility: hidden;
-  width: 66px;
-    height: 66px;
-}
-
-/* Background Image */
-
-#bimg {
-  position: absolute;
-  z-index: 2;
-  margin: -42px 0 0 201px;
-}
-
-/* Scrolling Text  */
-
-#logo {
-  position: absolute;
-  font-size: 51px;
-  z-index: 3;
-  margin: 33px 0 0 523px;
-  width: 389px;
-  background: black;
-  color: yellow;
-  height: 84px;
 }
 
 /* Start Button */
@@ -80,4 +85,41 @@ body {
   z-index: 30;
   margin: 546px 0 0 522px;
   background-color: gold;
+}
+
+/* ------------------------------------------------------------------------------------------------------------------- */
+
+/* questions */
+#questions{
+  position: absolute;
+  z-index: 30;
+  margin: 234px 0 0 585px;
+
+}
+
+/* Timer */
+
+#time{
+  position: absolute;
+  z-index: 40;
+  color: red;
+  font-size: 23px;
+  margin: 184px 0 0 558px;
+  text-align: right;
+  width: 131px;
+
+}
+
+/* Score */
+
+#score{
+  position: absolute;
+    float: left;
+    z-index: 40;
+    color: red;
+    font-size: 23px;
+    margin: 184px 0 0 716px;
+    width: 133px;
+    text-align: right;
+
 }

@@ -1,33 +1,32 @@
 // ----------------------------------------------------------------------------------------------------
 //                               Moles
 // ----------------------------------------------------------------------------------------------------
-  var info = {
-    moles: ''
+var score=0;
+
+var info = {
+    moles: ""
+    
   },
   lastIndex = -1,
+  onload = function() {
+    info.moles = this.document.querySelectorAll("#mole");
+  };
 
- 
-onload = function () {
-  info.moles = this.document.querySelectorAll('#mole');
-  for (const mole of info.moles) {
-    mole.addEventListener('click', clicked);
-  }
- 
-}
+$(".mol").on("click",function(){
 
-// Start Button
+score++;
+$("#score").text("Score = "+score);
 
-$("#btn").on("click",function(){
-  play();
+
 });
 
 //Play
 function play() {
   randomize();
-  setTimeout(play, (Math.random() * 700 + 1500));
+  setTimeout(play, Math.random() * 700 + 1200);
 }
 
- //Random Moles
+//Random Moles
 function randomize() {
   var index = lastIndex;
   while (lastIndex == index) {
@@ -37,5 +36,46 @@ function randomize() {
     info.moles[lastIndex].classList.remove("active");
   }
   lastIndex = index;
-  info.moles[index].classList.add("active")
+  info.moles[index].classList.add("active");
 }
+
+// ----------------------------------------------------------------------------------------------------
+//                              Questions
+// ----------------------------------------------------------------------------------------------------
+
+// Start Button
+$("#btn").on("click", function() {
+
+// ------------------------------------------ 
+//   Timer
+
+
+  var counter = 20;
+  $("#time").text(counter);
+  var timer = setInterval(goDown, 1 * 1000);
+
+  function goDown() {
+    counter--;
+    $("#time").text("Time = " + counter);
+
+    if (counter == 0) {
+      clearInterval(timer);
+      $("#time").text("Time = 0");
+    }
+  }
+
+  // ------------------------------------------
+
+
+  // Start Moles
+  play();
+
+  // Score
+$("#score").text("Score = "+score);
+
+  // After click button disable
+  $("#btn").attr("disabled", true);
+});
+
+
+ 
