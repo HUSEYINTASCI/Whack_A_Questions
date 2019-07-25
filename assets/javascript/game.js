@@ -5,7 +5,7 @@
 var info = {
     moles: "",
     score: 0,
-    counter: 20
+    counter: 5
   },
   lastIndex = -1,
   onload = function() {
@@ -45,7 +45,7 @@ function randomize() {
 // ----------------------------------------------------------------------------------------------------
 
 // Start Button
-$("#btn").on("click", function() {
+$("#btn").on("click", function bnt() {
   // Backgroud Sound
   game();
   // select questions
@@ -64,9 +64,11 @@ $("#btn").on("click", function() {
     if (info.counter == 0) {
       clearInterval(timer);
       clearTimeout(pl);
-      $("#time").text("Time = 0");
-      $("#questions").html("GAME OVER");
-      alert("GAME OVER");
+      $("#questions").html("");
+      bnt();
+      info.counter = 20;
+      $("#time").text(info.counter);
+      timer;
     }
   }
 
@@ -81,6 +83,7 @@ $("#btn").on("click", function() {
   // After click button disable
   $("#btn").attr("disabled", true);
 });
+
 // ---------------------------------------------------------------------------------------------------------------
 // Questions
 
@@ -121,8 +124,8 @@ function getquestion() {
     }
   }
 }
-// ---------------------------------------------------------------------------------------------------------------
 
+// ---------------------------------------------------------------------------------------------------------------
 
 //   Sounds
 // ------------------------------------------
