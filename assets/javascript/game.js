@@ -48,6 +48,8 @@ function randomize() {
 $("#btn").on("click", function() {
   // Backgroud Sound
   game();
+  // select questions
+  getquestion();
 
   // ------------------------------------------
   //   Timer
@@ -73,21 +75,54 @@ $("#btn").on("click", function() {
   // Start Moles
   play();
 
-  // Questions
-  $("<iframe>", {
-    src: "assets/questions/q1.txt",
-    name: "I1",
-    width: "267",
-    height: "118",
-    frameborder: "0"
-  }).appendTo("#questions");
-
   // Score
   $("#score").text("Score = " + info.score);
 
   // After click button disable
   $("#btn").attr("disabled", true);
 });
+// ---------------------------------------------------------------------------------------------------------------
+// Questions
+
+function getquestion() {
+  var que = ["q1.txt", "q2.txt", "q3.txt", "q4.txt", "q5.txt"];
+
+  var qarr = new randomquestion(que);
+
+  $("<iframe>", {
+    src: "assets/questions/" + qarr.getque(),
+    name: "I1",
+    width: "267",
+    height: "118",
+    frameborder: "0"
+  }).appendTo("#questions");
+
+  function randomquestion(arr, rq) {
+    if (!arr) {
+      return;
+    }
+
+    var length = arr.length;
+    this.indexes = [];
+
+    this.remainingItems = function() {
+      return this.indexes.length;
+    };
+
+    this[rq || "getque"] = function() {
+      var rand = Math.floor(Math.random() * this.indexes.length),
+        item = arr[this.indexes[rand]];
+      this.indexes.splice(rand, 1);
+      return item;
+    };
+
+    while (length--) {
+      this.indexes[this.indexes.length] = length;
+    }
+  }
+}
+// ---------------------------------------------------------------------------------------------------------------
+
 
 //   Sounds
 // ------------------------------------------

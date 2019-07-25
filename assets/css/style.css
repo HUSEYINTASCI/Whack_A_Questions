@@ -8,14 +8,14 @@ body {
 /* Scrolling Text  */
 #logo {
   position: absolute;
-    font-size: 51px;
-    z-index: 3;
-    margin: 24px 0 0 519px;
-    width: 395px;
-    border-radius: 11px;
-    background: black;
-    color: yellow;
-    height: 95px;
+  font-size: 51px;
+  z-index: 3;
+  margin: 24px 0 0 519px;
+  width: 395px;
+  border-radius: 11px;
+  background: black;
+  color: yellow;
+  height: 95px;
 }
 
 /* Background Image */
@@ -126,46 +126,37 @@ body {
 }
 
 /* Sound On/off */
-#bsoundoff{
-  margin: 547px 0 0 807px;
+#bsoundoff {
+  margin: 533px 0 0 796px;
   float: right;
   position: absolute;
+  padding: 12px;
   z-index: 70;
-  width: 92px;
+  width: 121px;
   color: gold;
   cursor: pointer;
 }
 /* @Media */
 
-@media (min-width: 100px) { 
-
+@media (min-width: 100px) {
   #gam {
     margin: 60px 0 0 -512px;
   }
-
- }
- @media (min-width: 768px) { 
-
+}
+@media (min-width: 768px) {
   #gam {
     margin: 60px 0 0 -346px;
   }
+}
 
- }
-
- @media (min-width: 1024px) { 
-
+@media (min-width: 1024px) {
   #gam {
     margin: 109px 0 0 -198px;
   }
+}
 
- }
-
- @media (min-width: 1440px) { 
-
+@media (min-width: 1440px) {
   #gam {
     margin: 82px 0 0 0;
   }
-
- }
-
-
+}
