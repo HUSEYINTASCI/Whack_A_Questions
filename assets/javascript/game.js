@@ -5,7 +5,7 @@
 var info = {
     moles: "",
     score: 0,
-    counter: 5
+    counter: 10
   },
   lastIndex = -1,
   onload = function() {
@@ -37,11 +37,14 @@ function randomize() {
 // ----------------------------------------------------------------------------------------------------
 //                              Questions
 // ----------------------------------------------------------------------------------------------------
- // ------------------------------------------
+
+
+
+
+
+
+// ------------------------------------------
   //   Timer
-
-
-  
 
   function tp(){
   $("#time").text(info.counter);
@@ -55,7 +58,7 @@ function randomize() {
      
       $("#time").text(info.counter);
       clearInterval(info.counter);
-      info.counter = 5;
+      info.counter = 10;
       loaded();
       return;
      
@@ -81,13 +84,7 @@ $("#btn").on("click", function bnt() {
   
   tp();
   // Backgroud Sound
-  game();
-  // select questions
-  getquestion();
-
-  // Start Moles
-  play();
-
+ loaded();
   // Score
   $("#score").text("Score = " + info.score);
 
@@ -100,8 +97,8 @@ $("#btn").on("click", function bnt() {
 
 function getquestion() {
   var que = ["q1", "q2", "q3", "q4", "q5"];
-var qarr = new randomquestion(que);
-var hh = qarr.getque();
+  var qarr = new randomquestion(que);
+  var hh = qarr.getque();
 
   $("<iframe>", {
     src: "assets/questions/" + hh + ".txt",
@@ -110,6 +107,7 @@ var hh = qarr.getque();
     height: "118",
     frameborder: "0"
   }).appendTo("#questions");
+ 
 }
 
 function randomquestion(arr, rq) {
@@ -137,13 +135,21 @@ function randomquestion(arr, rq) {
 }
 
 $(document).on("click", ".mol", function() {
+ // Select iframe name
+  var kr=document.querySelector("iframe").name;
+  
+ // Whack Sound
   whack();
+
+  // Mole id
   var ry = $(this).data("value");
 
-  if (hh == ry) {
+  // if question and mole mach
+  if (kr== ry) {
     info.score++;
     $("#score").text("Score = " + info.score);
     alert("Great");
+    // Loaded Functions
     loaded();
   }
 });
