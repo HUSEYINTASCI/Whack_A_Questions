@@ -12,10 +12,9 @@ var info = {
     info.moles = this.document.querySelectorAll("#mole");
   };
 
-// Mole Catch
-
 //Play
 var pl;
+
 function play() {
   randomize();
   pl = setTimeout(play, Math.random() * 700 + 1200);
@@ -38,54 +37,89 @@ function randomize() {
 //                              Questions
 // ----------------------------------------------------------------------------------------------------
 
-
-
-
-
-
 // ------------------------------------------
-  //   Timer
-
-  function tp(){
+// Question Timer
+var timer;
+function qtimer() {
   $("#time").text(info.counter);
-  var timer = setInterval(goDown, 1 * 1000);
+  timer = setInterval(goDown, 1 * 1000);
 
   function goDown() {
     info.counter--;
     $("#time").text("Time = " + info.counter);
-
     if (info.counter <= 0) {
-     
       $("#time").text(info.counter);
       clearInterval(info.counter);
       info.counter = 10;
       loaded();
       return;
-     
-    
     }
   }
 }
-  function loaded(){
+// ------------------------------------------
+//   General Timer
+var gt;
+function generaltimer() {
+  var gtimer = 40;
+  gt = setInterval(gDown, 1 * 1000);
 
-    clearTimeout(pl);
-    $("#questions").html("");
-      // Backgroud Sound
-      game();
-      // select questions
-      getquestion();
-      play();
-    
+  function gDown() {
+    gtimer--;
+
+    if (gtimer == 0) {
+      //Generaltimer interval
+      clearInterval(gt);
+      //Question timer interval
+      clearInterval(timer);
+      //Clear Question
+      $("#questions").html("");
+      //Mole Random Stop
+      clearTimeout(pl);
+
+      //Answers
+      $("<iframe>", {
+        src: "assets/questions/answers.txt",
+        name: "ans",
+        width: "267",
+        height: "118",
+        frameborder: "0"
+      }).appendTo("#questions");
+
+      $("marquee").text("GAME OVER");
+
+      //Backgraud sound mute
+      player2.muted = true;
+
+      // After click button active
+      $("#btn").attr("disabled", false);
+    }
   }
-  // ------------------------------------------
+}
+function loaded() {
+  clearTimeout(pl);
+  $("#questions").html("");
+  // Backgroud Sound
+  game();
+  // select questions
+  getquestion();
+  play();
+}
+// ------------------------------------------
 
 // Start Button
 $("#btn").on("click", function bnt() {
-  
-  tp();
+  // Clear questions
+  $("#questions").html("");
+  // Score value
+  info.score = 0;
+  $("marquee").text("Whack A Questions");
+  // Generaltimer
+  generaltimer();
+  // Question Timer
+  qtimer();
   // Backgroud Sound
- loaded();
-  // Score
+  loaded();
+  // Score in html
   $("#score").text("Score = " + info.score);
 
   // After click button disable
@@ -96,7 +130,7 @@ $("#btn").on("click", function bnt() {
 // Questions
 
 function getquestion() {
-  var que = ["q1", "q2", "q3", "q4", "q5"];
+  var que = ["q1", "q2", "q3", "q4"];
   var qarr = new randomquestion(que);
   var hh = qarr.getque();
 
@@ -107,7 +141,6 @@ function getquestion() {
     height: "118",
     frameborder: "0"
   }).appendTo("#questions");
- 
 }
 
 function randomquestion(arr, rq) {
@@ -133,19 +166,19 @@ function randomquestion(arr, rq) {
     this.indexes[this.indexes.length] = length;
   }
 }
-
+// Mole Catch
 $(document).on("click", ".mol", function() {
- // Select iframe name
-  var kr=document.querySelector("iframe").name;
-  
- // Whack Sound
+  // Select iframe name
+  var kr = document.querySelector("iframe").name;
+
+  // Whack Sound
   whack();
 
   // Mole id
   var ry = $(this).data("value");
 
   // if question and mole mach
-  if (kr== ry) {
+  if (kr == ry) {
     info.score++;
     $("#score").text("Score = " + info.score);
     alert("Great");
@@ -161,12 +194,14 @@ $(document).on("click", ".mol", function() {
 
 // Whack Sound
 var player = document.querySelector("#whack");
+
 function whack() {
   player.play();
 }
 
 // Background Sound
 var player2 = document.querySelector("#game");
+
 function game() {
   player2.play();
 }
@@ -179,4 +214,4 @@ document.querySelector("#check").onclick = function() {
   }
 };
 
-// ------------------------------------------
+// ----------------------------------------
