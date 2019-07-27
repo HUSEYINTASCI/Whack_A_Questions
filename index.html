@@ -11,6 +11,7 @@
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
+    <link href="https://fonts.googleapis.com/css?family=Bungee+Inline&display=swap" rel="stylesheet">
     <link href="assets/images/favicon.ico" rel="icon" type="image/x-icon" />
     <link rel="stylesheet" href="assets/css/style.css" />
     <title>Whack A Questions</title>
@@ -22,17 +23,17 @@
       <div id="base">
         <div id="info"></div>
         <div>
-          <div id="mole1">
-            <div id="mole" class="mol"></div>
+          <div id="mole1" >
+            <div id="mole" class="mol" data-value="q1" ></div>
           </div>
           <div id="mole2">
-            <div id="mole" class="mol"></div>
+            <div id="mole" class="mol" data-value="q2"></div>
           </div>
           <div id="mole3">
-            <div id="mole" class="mol"></div>
+            <div id="mole" class="mol" data-value="q3" ></div>
           </div>
           <div id="mole4">
-            <div id="mole" class="mol"></div>
+            <div id="mole" class="mol" data-value="q4"></div>
           </div>
         </div>
       </div>
@@ -64,7 +65,7 @@
 
       <!-- Backgroud Sound -->
       <audio id="game" class="bsounds" loop>
-        <source src="assets/sounds/game.mp3" type="audio/mpeg" />
+        <source src="/assets/sounds/game.mp3" type="audio/mpeg" />
       </audio>
       <div id="bsoundoff">
         <input id="check" type="checkbox" name="off" value="1" /><span

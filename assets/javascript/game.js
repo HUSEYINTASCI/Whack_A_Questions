@@ -14,12 +14,6 @@ var info = {
 
 // Mole Catch
 
-$(".mol").on("click", function() {
-  whack();
-  info.score++;
-  $("#score").text("Score = " + info.score);
-});
-
 //Play
 var pl;
 function play() {
@@ -43,17 +37,13 @@ function randomize() {
 // ----------------------------------------------------------------------------------------------------
 //                              Questions
 // ----------------------------------------------------------------------------------------------------
-
-// Start Button
-$("#btn").on("click", function bnt() {
-  // Backgroud Sound
-  game();
-  // select questions
-  getquestion();
-
-  // ------------------------------------------
+ // ------------------------------------------
   //   Timer
 
+
+  
+
+  function tp(){
   $("#time").text(info.counter);
   var timer = setInterval(goDown, 1 * 1000);
 
@@ -61,18 +51,39 @@ $("#btn").on("click", function bnt() {
     info.counter--;
     $("#time").text("Time = " + info.counter);
 
-    if (info.counter == 0) {
-      clearInterval(timer);
-      clearTimeout(pl);
-      $("#questions").html("");
-      bnt();
-      info.counter = 20;
+    if (info.counter <= 0) {
+     
       $("#time").text(info.counter);
-      timer;
+      clearInterval(info.counter);
+      info.counter = 5;
+      loaded();
+      return;
+     
+    
     }
   }
+}
+  function loaded(){
 
+    clearTimeout(pl);
+    $("#questions").html("");
+      // Backgroud Sound
+      game();
+      // select questions
+      getquestion();
+      play();
+    
+  }
   // ------------------------------------------
+
+// Start Button
+$("#btn").on("click", function bnt() {
+  
+  tp();
+  // Backgroud Sound
+  game();
+  // select questions
+  getquestion();
 
   // Start Moles
   play();
@@ -88,42 +99,54 @@ $("#btn").on("click", function bnt() {
 // Questions
 
 function getquestion() {
-  var que = ["q1.txt", "q2.txt", "q3.txt", "q4.txt", "q5.txt"];
-
-  var qarr = new randomquestion(que);
+  var que = ["q1", "q2", "q3", "q4", "q5"];
+var qarr = new randomquestion(que);
+var hh = qarr.getque();
 
   $("<iframe>", {
-    src: "assets/questions/" + qarr.getque(),
-    name: "I1",
+    src: "assets/questions/" + hh + ".txt",
+    name: hh,
     width: "267",
     height: "118",
     frameborder: "0"
   }).appendTo("#questions");
+}
 
-  function randomquestion(arr, rq) {
-    if (!arr) {
-      return;
-    }
+function randomquestion(arr, rq) {
+  if (!arr) {
+    return;
+  }
 
-    var length = arr.length;
-    this.indexes = [];
+  var length = arr.length;
+  this.indexes = [];
 
-    this.remainingItems = function() {
-      return this.indexes.length;
-    };
+  this.remainingItems = function() {
+    return this.indexes.length;
+  };
 
-    this[rq || "getque"] = function() {
-      var rand = Math.floor(Math.random() * this.indexes.length),
-        item = arr[this.indexes[rand]];
-      this.indexes.splice(rand, 1);
-      return item;
-    };
+  this[rq || "getque"] = function() {
+    var rand = Math.floor(Math.random() * this.indexes.length),
+      item = arr[this.indexes[rand]];
+    this.indexes.splice(rand, 1);
+    return item;
+  };
 
-    while (length--) {
-      this.indexes[this.indexes.length] = length;
-    }
+  while (length--) {
+    this.indexes[this.indexes.length] = length;
   }
 }
+
+$(document).on("click", ".mol", function() {
+  whack();
+  var ry = $(this).data("value");
+
+  if (hh == ry) {
+    info.score++;
+    $("#score").text("Score = " + info.score);
+    alert("Great");
+    loaded();
+  }
+});
 
 // ---------------------------------------------------------------------------------------------------------------
 

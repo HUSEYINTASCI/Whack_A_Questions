@@ -16,6 +16,7 @@ body {
   background: black;
   color: yellow;
   height: 95px;
+  font-family: 'Bungee Inline', cursive;
 }
 
 /* Background Image */
@@ -94,7 +95,7 @@ body {
 #questions {
   position: absolute;
   z-index: 30;
-  margin: 234px 0 0 585px;
+  margin: 222px 0 0 585px;
 }
 
 /* Timer */
@@ -103,9 +104,10 @@ body {
   z-index: 40;
   color: palegoldenrod;
   font-size: 23px;
-  margin: 184px 0 0 558px;
+  margin: 184px 0 0 575px;
   text-align: right;
   width: 131px;
+  font-family: 'Bungee Inline', cursive;
 }
 
 /* Score */
@@ -118,6 +120,7 @@ body {
   margin: 184px 0 0 716px;
   width: 133px;
   text-align: right;
+  font-family: 'Bungee Inline', cursive;
 }
 
 /* Whack Sound */
