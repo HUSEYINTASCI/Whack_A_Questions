@@ -34,8 +34,10 @@ body {
   transform: translateY(60%);
   transition: transform 0.4s;
   visibility: hidden;
-  width: 66px;
-  height: 66px;
+  width: 106px;
+  height: 102px;
+  padding: 0;
+  cursor: url("../images/c2.png"), auto;
 }
 
 #mole1 {
@@ -43,7 +45,7 @@ body {
   height: 100px;
   position: absolute;
   z-index: 20;
-  margin: 413px 0 0 536px;
+  margin: 377px 0 0 515px;
 }
 
 #mole2 {
@@ -51,14 +53,14 @@ body {
   height: 100px;
   position: absolute;
   z-index: 20;
-  margin: 441px 1px 3px 622px;
+  margin: 407px 0 0 605px;
 }
 #mole3 {
   width: 100px;
   height: 100px;
   position: absolute;
   z-index: 20;
-  margin: 412px 0px 0 718px;
+  margin: 377px 0px 0 695px;
 }
 
 #mole4 {
@@ -66,12 +68,10 @@ body {
   height: 100px;
   position: absolute;
   z-index: 20;
-  margin: 440px 0 0 823px;
+  margin: 403px 0 0 804px;
 }
 
-.mol {
-  cursor: url("../images/c2.png"), auto;
-}
+
 .active {
   visibility: visible !important;
   transform: translateY(0) !important;
